@@ -1,0 +1,3 @@
+# Requiered
+* `gcc`
+* `nasm`
