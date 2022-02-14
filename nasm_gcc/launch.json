@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "custom",
+            "type": "cppdbg",
+            "preLaunchTask": "Build",
+            "request": "launch",
+            "program": "${workspaceFolder}/main",
+            //"stopAtEntry": true,
+            "windows": {
+                "program": "${workspaceFolder}\\main.exe",
+                //"externalConsole": true
+            },
+            "cwd": "${workspaceFolder}"
+          }
+    ]
+}

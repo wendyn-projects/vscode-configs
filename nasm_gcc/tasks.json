@@ -1,0 +1,59 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Clean Build",
+            "type": "shell",
+            "command": "rm *.o",
+            "windows": {
+                "command": "del *.o"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "Build"
+            ]
+        },
+        {
+            "label": "Build",
+            "detail": "Links all *.o into executable",
+            "type": "shell",
+            "command": "gcc *.o -o main -no-pie",
+            "problemMatcher": "$gcc",
+            "group": "build",
+            "dependsOn": [
+                "Build *.asm",
+                "Build *.c"
+            ]
+        },
+        {
+            "label": "Build *.c",
+            "type": "shell",
+            "command": "gcc *.c -g -std=c99 -c",
+            "problemMatcher": "$gcc",
+            "group": "build"
+        },
+        {
+            "label": "Build *.asm",
+            "type": "shell",
+            "command": "for f in $(find *.asm); do nasm -f elf64 -g -F dwarf $f; done",
+            "windows": {
+                "command": "Get-ChildItem -Filter *.asm -File -Name | ForEach-Object { nasm -f elf64 -g -F dwarf $_ }"
+            },
+            "problemMatcher": "$gcc",
+            "group": "build"            
+        },
+        {
+            "label": "Clean",
+            "detail": "Gets rid of *.o files.",
+            "type": "shell",
+            "command": "rm *.o",
+            "windows": {
+                "command": "del *.o"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
