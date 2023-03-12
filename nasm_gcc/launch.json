@@ -1,18 +1,14 @@
 {
+    // https://code.visualstudio.com/docs/editor/debugging#_launch-configurations
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "custom",
+            "name": "Build and Debug",
             "type": "cppdbg",
-            "preLaunchTask": "Build",
+            "preLaunchTask": "Clean Build",
             "request": "launch",
             "program": "${workspaceFolder}/main",
-            //"stopAtEntry": true,
-            "windows": {
-                "program": "${workspaceFolder}\\main.exe",
-                //"externalConsole": true
-            },
             "cwd": "${workspaceFolder}"
-          }
+        }
     ]
 }

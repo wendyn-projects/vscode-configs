@@ -1,24 +1,22 @@
 {
+    // https://code.visualstudio.com/docs/editor/tasks
     "version": "2.0.0",
     "tasks": [
         {
             "label": "Clean Build",
             "type": "shell",
             "command": "rm *.o",
-            "windows": {
-                "command": "del *.o"
-            },
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "dependsOn": [
-                "Build"
+                "Build All"
             ]
         },
         {
-            "label": "Build",
-            "detail": "Links all *.o into executable",
+            "label": "Build All",
+            "detail": "Links all *.o into executable.",
             "type": "shell",
             "command": "gcc *.o -o main -no-pie",
             "problemMatcher": "$gcc",
@@ -30,6 +28,7 @@
         },
         {
             "label": "Build *.c",
+            "detail": "Compiles all C files.",
             "type": "shell",
             "command": "gcc *.c -g -std=c99 -c",
             "problemMatcher": "$gcc",
@@ -37,23 +36,10 @@
         },
         {
             "label": "Build *.asm",
+            "detail": "Compiles all Assembly files.",
             "type": "shell",
             "command": "for f in $(find *.asm); do nasm -f elf64 -g -F dwarf $f; done",
-            "windows": {
-                "command": "Get-ChildItem -Filter *.asm -File -Name | ForEach-Object { nasm -f elf64 -g -F dwarf $_ }"
-            },
-            "problemMatcher": "$gcc",
-            "group": "build"            
-        },
-        {
-            "label": "Clean",
-            "detail": "Gets rid of *.o files.",
-            "type": "shell",
-            "command": "rm *.o",
-            "windows": {
-                "command": "del *.o"
-            },
-            "problemMatcher": []
+            "group": "build"
         }
     ]
 }
