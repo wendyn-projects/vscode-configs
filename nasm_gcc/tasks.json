@@ -10,35 +10,23 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "dependsOn": [
-                "Build All"
-            ]
+            "dependsOn": [ "Build" ]
         },
         {
-            "label": "Build All",
-            "detail": "Links all *.o into executable.",
+            "label": "Build",
+            "detail": "Builds the project.",
             "type": "shell",
-            "command": "gcc *.o -o main -no-pie",
+            "command": "gcc -fdiagnostics-color=always *.c *.o -g -std=c99 -o main -no-pie",
             "problemMatcher": "$gcc",
             "group": "build",
-            "dependsOn": [
-                "Build *.asm",
-                "Build *.c"
-            ]
+            "dependsOn": [ "Build Assembly" ]
         },
         {
-            "label": "Build *.c",
-            "detail": "Compiles all C files.",
-            "type": "shell",
-            "command": "gcc *.c -g -std=c99 -c",
-            "problemMatcher": "$gcc",
-            "group": "build"
-        },
-        {
-            "label": "Build *.asm",
-            "detail": "Compiles all Assembly files.",
+            "label": "Build Assembly",
+            "detail": "Builds *.asm files.",
             "type": "shell",
             "command": "for f in $(find *.asm); do nasm -f elf64 -g -F dwarf $f; done",
+            "problemMatcher": "$gcc",
             "group": "build"
         }
     ]
