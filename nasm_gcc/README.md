@@ -1,6 +1,7 @@
 # Requiered
-* `gcc`
-* `nasm`
+ * `gcc`
+ * `nasm`
+ * `gdb`
 
 # Setup
-* Put this in `${workspaceFolder}/.vscode`.
+ * Put this in `${workspaceFolder}/.vscode`.
