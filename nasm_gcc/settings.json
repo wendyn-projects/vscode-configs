@@ -1,3 +1,5 @@
 {
-    "debug.allowBreakpointsEverywhere": true
+    "debug.allowBreakpointsEverywhere": true,
+    "nasm.checkOnType": true,
+    "nasm.outputFormat": "elf64"
 }
