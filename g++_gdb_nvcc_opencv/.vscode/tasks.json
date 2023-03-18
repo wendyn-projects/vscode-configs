@@ -1,0 +1,42 @@
+{
+    // https://code.visualstudio.com/docs/editor/tasks
+    "tasks": [
+        {
+            "label": "Clean Build",
+            "detail": "Builds the executable and then cleans the unnecessary files.",
+            "type": "shell",
+            "command": "rm *.o",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [ "Build" ]
+        },
+        {
+            "label": "Build",
+            "detail": "Builds C++ and CUDA and links them with necessary libraries into an executable.",
+            "type": "shell",
+            "command": "g++ *.o -L/usr/local/cuda/lib64 -lcudart -lcuda $(pkg-config --libs-only-L opencv) $(pkg-config --libs-only-l opencv) -o main -fdiagnostics-color=always",
+            "problemMatcher": "$gcc",
+            "group": "build",
+            "dependsOn": [ "Build C++", "Build CUDA" ]
+        },
+        {
+            "label": "Build C++",
+            "detail": "Builds *.cpp files.",
+            "type": "shell",
+            "command": "g++ -g *.cpp -c -I/usr/local/cuda/include $(pkg-config --cflags opencv)",
+            "problemMatcher": "$gcc",
+            "group": "build"
+        },
+        {
+            "label": "Build CUDA",
+            "detail": "Builds *.cu files.",
+            "type": "shell",
+            "command": "nvcc -g *.cu -c $(pkg-config --cflags opencv)",
+            "problemMatcher": "$gcc",
+            "group": "build"
+        }
+    ],
+    "version": "2.0.0"
+}

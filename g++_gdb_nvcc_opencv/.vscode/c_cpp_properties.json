@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/usr/local/cuda/include",
+                "/usr/local/include/opencv"
+            ],
+            "defines": []
+        }
+    ],
+    "version": 4
+}

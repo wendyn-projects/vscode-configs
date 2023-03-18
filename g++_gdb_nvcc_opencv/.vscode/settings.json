@@ -1,0 +1,9 @@
+{
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.profiles.linux": {
+    "bash": {
+        "path": "bash",
+        "args": [ "-l", "-i" ] // I have NVCC set as in .bashrc, so I need to run bash in interactive mode
+    }
+  }
+}
