@@ -16,7 +16,7 @@
             "label": "Build",
             "detail": "Builds the project.",
             "type": "shell",
-            "command": "gcc -fdiagnostics-color=always *.c *.o -g -std=c99 -o main -no-pie",
+            "command": "gcc *.c *.o -g -std=c99 -o main -no-pie -fdiagnostics-color=always",
             "problemMatcher": "$gcc",
             "group": "build",
             "dependsOn": [ "Build Assembly" ]
