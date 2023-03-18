@@ -1,4 +1,4 @@
 # Requiered
  * `gcc`
- * `nasm`
  * `gdb`
+ * `nasm`
