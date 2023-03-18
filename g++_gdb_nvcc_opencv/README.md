@@ -11,8 +11,8 @@ export PATH=$PATH:/usr/local/cuda/bin
 ```
 _Because of that  `vscode` needs to run `bash` in interactive mode which is **already** configured in `./.vscode/settings.json`._
 
-## `vscode` doesn't see `opencv` include headers
-If your `vscode` doesn't see `opencv` include headers, you can find them with this command:
+## `vscode` doesn't see `opencv`'s include headers
+If your `vscode` doesn't see `opencv`'s include headers, you can find them with this command:
 ```bash
 pkg-config --cflags opencv
 ```
