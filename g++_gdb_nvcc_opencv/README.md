@@ -3,7 +3,7 @@
  * `gdb`
  * `nvcc`
  * `opencv`
-# Common Problems
+# Common Issues
 ## Terminal prints: `-bash: nvcc: command not found`
 You might not have `nvcc` in your search path. For that you can add this line to `~/.bashrc`:
 ```bash
