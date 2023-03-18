@@ -16,7 +16,7 @@ If your `vscode` doesn't see `opencv`'s include headers, you can find them with 
 ```bash
 pkg-config --cflags opencv
 ```
-It will print include args for your compiler in this format:
+It will print include args for `opencv` for your compiler in this format:
 ```
 -I<path1> -I<path2> -I<path3>...
 ```
