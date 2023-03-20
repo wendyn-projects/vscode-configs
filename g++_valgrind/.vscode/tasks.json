@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "*.cpp",
+                "-std=c++17",
+                "-Wall",
+                "-Wextra",
+                "-pedantic",
+                "-g",
+                "-o",
+                "main"
+            ],
+            "problemMatcher": "$gcc",
+            "group": "build"
+        },
+        {
+            "label": "Run in Valgrind",
+            "type": "shell",
+            "command": "valgrind",
+            "args": [
+                "--leak-check=yes",
+                "--fullpath-after=${workspaceFolder}",
+                "${workspaceFolder}/main"
+            ],
+            "dependsOn": [
+                "Build"
+            ],
+            "problemMatcher": [
+                {
+                    "owner": "Valgrind",
+                    "severity": "warning",
+                    "fileLocation": [ "relative", "${workspaceFolder}" ],
+                    "pattern": [
+                        { "regexp": "^==\\d+== (\\S.+?) \\d+ of \\d+$", "message": 1 },
+                        { "regexp": "^==\\d+==    at .+?: (.+?) \\(.+?\\)$", "code": 1 },
+                        { "regexp": "^==\\d+==    by .+?: (.+? \\((.+?):(\\d+)\\))$", "message": 1, "file": 2, "line": 3 }
+                    ]
+                },
+            ]
+        }
+    ]
+}

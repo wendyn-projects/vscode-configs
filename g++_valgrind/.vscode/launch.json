@@ -1,0 +1,15 @@
+{
+    // https://code.visualstudio.com/docs/editor/debugging#_launch-configurations
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Build and Debug",
+            "type": "cppdbg",
+            "program": "${workspaceFolder}/main",
+            "args": [],
+            "preLaunchTask": "Build",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+        }
+    ]
+}
