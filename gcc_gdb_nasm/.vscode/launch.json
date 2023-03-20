@@ -5,9 +5,9 @@
         {
             "name": "Build and Debug",
             "type": "cppdbg",
+            "program": "${workspaceFolder}/main",
             "preLaunchTask": "Clean Build",
             "request": "launch",
-            "program": "${workspaceFolder}/main",
             "cwd": "${workspaceFolder}"
         }
     ]
